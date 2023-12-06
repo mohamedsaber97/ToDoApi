@@ -1,0 +1,31 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="ToDo Api" verbose="1">
+    <test name="smoke">
+        <groups>
+            <run>
+                <include name="auth"/>
+                <exclude name="todo"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="toDo.testcases.UsersTest">
+                <methods>
+                    <exclude name="registerNewUserTC"/>
+                    <exclude name="registerExistedUserTC"/>
+                    <exclude name="loginValidUserTC"/>
+                    <exclude name="loginInValidUserTC"/>
+                </methods>
+            </class>
+            <class name="toDo.testcases.ToDoTest">
+                <methods>
+                    <include name="addToDoTC"/>
+                    <exclude name="getToDoTC"/>
+                    <exclude name="deleteToDoTC"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
+
+
