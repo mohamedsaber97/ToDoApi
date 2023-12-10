@@ -4,16 +4,17 @@
   <test thread-count="5" name="smoke(failed)">
     <groups>
       <run>
-        <include name="auth"/>
-        <exclude name="todo"/>
+        <include name="todo"/>
+        <exclude name="auth"/>
       </run>
     </groups>
     <classes>
-      <class name="toDo.testcases.UsersTest">
+      <class name="toDo.testcases.ToDoTest">
         <methods>
-          <include name="registerNewUserTC"/>
+          <include name="deleteToDoTC"/>
+          <include name="getToDoTC"/>
         </methods>
-      </class> <!-- toDo.testcases.UsersTest -->
+      </class> <!-- toDo.testcases.ToDoTest -->
     </classes>
   </test> <!-- smoke(failed) -->
 </suite> <!-- Failed suite [ToDo Api] -->

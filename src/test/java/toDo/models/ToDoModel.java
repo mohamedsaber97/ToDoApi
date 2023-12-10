@@ -11,7 +11,7 @@ public class ToDoModel {
     @JsonProperty("_id")
     private String id;
     private String item;
-    private String userId;
+    private String userID;
     private String createdAt;
     @JsonProperty("__v")
     private String v;
@@ -52,12 +52,12 @@ public class ToDoModel {
         this.item = item;
     }
 
-    public String getUserId() {
-        return userId;
+    public String getUserID() {
+        return userID;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    public void setUserID(String userID) {
+        this.userID = userID;
     }
 
     public String getCreatedAt() {

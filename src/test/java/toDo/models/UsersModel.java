@@ -24,6 +24,11 @@ public class UsersModel {
         this.password = password;
     }
 
+    public UsersModel(String email, String password) {
+        this.email = email;
+        this.password = password;
+    }
+
     public String getFirstName() {
         return firstName;
     }

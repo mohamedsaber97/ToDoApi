@@ -92,7 +92,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">1 method,   1 passed</span>
+                    <span class="method-stats">3 methods,   3 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -103,7 +103,17 @@
                     <div class="method-list-content passed suite-ToDo_Api">
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-ToDo_Api" title="toDo.testcases.UsersTest" class="method navigator-link" hash-for-method="registerNewUserTC">registerNewUserTC</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-ToDo_Api" title="toDo.testcases.ToDoTest" class="method navigator-link" hash-for-method="addToDoTC">addToDoTC</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-ToDo_Api" title="toDo.testcases.ToDoTest" class="method navigator-link" hash-for-method="deleteToDoTC">deleteToDoTC</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-ToDo_Api" title="toDo.testcases.ToDoTest" class="method navigator-link" hash-for-method="getToDoTC">getToDoTC</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-ToDo_Api -->
@@ -121,14 +131,28 @@
           <div class="suite-ToDo_Api-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
-              <span class="class-name">toDo.testcases.UsersTest</span>
+              <span class="class-name">toDo.testcases.ToDoTest</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="registerNewUserTC">
-                  </a> <!-- registerNewUserTC -->
-                  <span class="method-name">registerNewUserTC</span>
+                  <a name="addToDoTC">
+                  </a> <!-- addToDoTC -->
+                  <span class="method-name">addToDoTC</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="deleteToDoTC">
+                  </a> <!-- deleteToDoTC -->
+                  <span class="method-name">deleteToDoTC</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="getToDoTC">
+                  </a> <!-- getToDoTC -->
+                  <span class="method-name">getToDoTC</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -146,26 +170,13 @@
   &lt;test thread-count=&quot;5&quot; name=&quot;smoke&quot;&gt;
     &lt;groups&gt;
       &lt;run&gt;
-        &lt;include name=&quot;auth&quot;/&gt;
-        &lt;exclude name=&quot;todo&quot;/&gt;
+        &lt;include name=&quot;todo&quot;/&gt;
+        &lt;exclude name=&quot;auth&quot;/&gt;
       &lt;/run&gt;
     &lt;/groups&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;toDo.testcases.UsersTest&quot;&gt;
-        &lt;methods&gt;
-          &lt;include name=&quot;registerNewUserTC&quot;/&gt;
-          &lt;exclude name=&quot;registerExistedUserTC&quot;/&gt;
-          &lt;exclude name=&quot;loginValidUserTC&quot;/&gt;
-          &lt;exclude name=&quot;loginInValidUserTC&quot;/&gt;
-        &lt;/methods&gt;
-      &lt;/class&gt; &lt;!-- toDo.testcases.UsersTest --&gt;
-      &lt;class name=&quot;toDo.testcases.ToDoTest&quot;&gt;
-        &lt;methods&gt;
-          &lt;exclude name=&quot;addToDoTC&quot;/&gt;
-          &lt;exclude name=&quot;getToDoTC&quot;/&gt;
-          &lt;exclude name=&quot;deleteToDoTC&quot;/&gt;
-        &lt;/methods&gt;
-      &lt;/class&gt; &lt;!-- toDo.testcases.ToDoTest --&gt;
+      &lt;class name=&quot;toDo.testcases.UsersTest&quot;/&gt;
+      &lt;class name=&quot;toDo.testcases.ToDoTest&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- smoke --&gt;
 &lt;/suite&gt; &lt;!-- ToDo Api --&gt;
@@ -190,10 +201,18 @@
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="test-group">
-              <span class="test-group-name">auth</span>
+              <span class="test-group-name">todo</span>
               <br/>
               <div class="method-in-group">
-                <span class="method-in-group-name">registerNewUserTC</span>
+                <span class="method-in-group-name">addToDoTC</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">deleteToDoTC</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">getToDoTC</span>
                 <br/>
               </div> <!-- method-in-group -->
             </div> <!-- test-group -->
@@ -213,16 +232,24 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(1);
+data.addRows(3);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'registerNewUserTC')
-data.setCell(0, 2, 'toDo.testcases.UsersTest')
-data.setCell(0, 3, 1776);
+data.setCell(0, 1, 'deleteToDoTC')
+data.setCell(0, 2, 'toDo.testcases.ToDoTest')
+data.setCell(0, 3, 2843);
+data.setCell(1, 0, 1)
+data.setCell(1, 1, 'addToDoTC')
+data.setCell(1, 2, 'toDo.testcases.ToDoTest')
+data.setCell(1, 3, 2786);
+data.setCell(2, 0, 2)
+data.setCell(2, 1, 'getToDoTC')
+data.setCell(2, 2, 'toDo.testcases.ToDoTest')
+data.setCell(2, 3, 1935);
 window.suiteTableData['ToDo_Api']= { tableData: data, tableDiv: 'times-div-ToDo_Api'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 1 seconds</span>
+              <span class="suite-total-time">Total running time: 7 seconds</span>
               <div id="times-div-ToDo_Api">
               </div> <!-- times-div-ToDo_Api -->
             </div> <!-- times-div -->
@@ -237,28 +264,19 @@ return data;
         </div> <!-- panel -->
         <div panel-name="ignored-methods-ToDo_Api" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">6 ignored methods</span>
+            <span class="header-content">4 ignored methods</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="ignored-class-div">
               <span class="ignored-class-name">toDo.testcases.UsersTest</span>
               <div class="ignored-methods-div">
-                <span class="ignored-method-name">registerExistedUserTC</span>
-                <br/>
                 <span class="ignored-method-name">loginValidUserTC</span>
                 <br/>
+                <span class="ignored-method-name">registerExistedUserTC</span>
+                <br/>
+                <span class="ignored-method-name">registerNewUserTC</span>
+                <br/>
                 <span class="ignored-method-name">loginInValidUserTC</span>
-                <br/>
-              </div> <!-- ignored-methods-div -->
-            </div> <!-- ignored-class-div -->
-            <div class="ignored-class-div">
-              <span class="ignored-class-name">toDo.testcases.ToDoTest</span>
-              <div class="ignored-methods-div">
-                <span class="ignored-method-name">getToDoTC</span>
-                <br/>
-                <span class="ignored-method-name">deleteToDoTC</span>
-                <br/>
-                <span class="ignored-method-name">addToDoTC</span>
                 <br/>
               </div> <!-- ignored-methods-div -->
             </div> <!-- ignored-class-div -->
@@ -270,10 +288,18 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">toDo.testcases.UsersTest</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">toDo.testcases.ToDoTest</div> <!-- chronological-class-name -->
               <div class="test-method">
-                <span class="method-name">registerNewUserTC</span>
+                <span class="method-name">addToDoTC</span>
                 <span class="method-start">0 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">getToDoTC</span>
+                <span class="method-start">2789 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">deleteToDoTC</span>
+                <span class="method-start">4725 ms</span>
               </div> <!-- test-method -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

@@ -1,20 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+<testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-12-10T14:57:58 EET" name="ToDo Api" finished-at="2023-12-10T14:58:00 EET" duration-ms="1825">
+  <suite started-at="2023-12-10T17:11:03 EET" name="ToDo Api" finished-at="2023-12-10T17:11:11 EET" duration-ms="7613">
     <groups>
-      <group name="auth">
-        <method signature="UsersTest.registerNewUserTC()[pri:0, instance:toDo.testcases.UsersTest@5c671d7f]" name="registerNewUserTC" class="toDo.testcases.UsersTest"/>
-      </group> <!-- auth -->
+      <group name="todo">
+        <method signature="ToDoTest.addToDoTC()[pri:1, instance:toDo.testcases.ToDoTest@10d68fcd]" name="addToDoTC" class="toDo.testcases.ToDoTest"/>
+        <method signature="ToDoTest.getToDoTC()[pri:2, instance:toDo.testcases.ToDoTest@10d68fcd]" name="getToDoTC" class="toDo.testcases.ToDoTest"/>
+        <method signature="ToDoTest.deleteToDoTC()[pri:3, instance:toDo.testcases.ToDoTest@10d68fcd]" name="deleteToDoTC" class="toDo.testcases.ToDoTest"/>
+      </group> <!-- todo -->
     </groups>
-    <test started-at="2023-12-10T14:57:58 EET" name="smoke" finished-at="2023-12-10T14:58:00 EET" duration-ms="1825">
-      <class name="toDo.testcases.UsersTest">
-        <test-method signature="registerNewUserTC()[pri:0, instance:toDo.testcases.UsersTest@5c671d7f]" started-at="2023-12-10T14:57:58 EET" name="registerNewUserTC" finished-at="2023-12-10T14:58:00 EET" duration-ms="1776" status="PASS">
+    <test started-at="2023-12-10T17:11:03 EET" name="smoke" finished-at="2023-12-10T17:11:11 EET" duration-ms="7613">
+      <class name="toDo.testcases.ToDoTest">
+        <test-method signature="addToDoTC()[pri:1, instance:toDo.testcases.ToDoTest@10d68fcd]" started-at="2023-12-10T17:11:03 EET" name="addToDoTC" finished-at="2023-12-10T17:11:06 EET" duration-ms="2786" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- registerNewUserTC -->
-      </class> <!-- toDo.testcases.UsersTest -->
+        </test-method> <!-- addToDoTC -->
+        <test-method signature="getToDoTC()[pri:2, instance:toDo.testcases.ToDoTest@10d68fcd]" started-at="2023-12-10T17:11:06 EET" name="getToDoTC" finished-at="2023-12-10T17:11:08 EET" duration-ms="1935" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getToDoTC -->
+        <test-method signature="deleteToDoTC()[pri:3, instance:toDo.testcases.ToDoTest@10d68fcd]" started-at="2023-12-10T17:11:08 EET" name="deleteToDoTC" finished-at="2023-12-10T17:11:11 EET" duration-ms="2843" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- deleteToDoTC -->
+      </class> <!-- toDo.testcases.ToDoTest -->
     </test> <!-- smoke -->
   </suite> <!-- ToDo Api -->
 </testng-results>

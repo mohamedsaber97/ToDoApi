@@ -5,18 +5,18 @@ import io.restassured.response.Response;
 import org.testng.annotations.Test;
 import toDo.apis.ToDoApi;
 import toDo.models.ToDoModel;
+import toDo.steps.ToDoSteps;
+import toDo.steps.UsersSteps;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 
 public class ToDoTest extends TestBase {
 
-    @Test(groups = "todo")
+    @Test(priority = 1, groups = "todo")
     public void addToDoTC() {
-        ToDoModel toDoModel = new ToDoModel(false, "learn appium");
-        token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9." +
-                "eyJpZCI6IjY1NzA1MTExYzZkOTBmMDAxNDE0YTljOSIsImZpcnN0TmFtZSI6Im1vaGFtZWQiLCJsYXN0TmFtZSI6InNhYmVyIiwiaWF0IjoxNzAxODYyNjM1fQ." +
-                "717B1Ge9WNThXSRQwmP7iayGCrZfhqtI6bAZWhQL4Ks";
+        String token = UsersSteps.getToken();
+        ToDoModel toDoModel = ToDoSteps.generateRandomToDo();
         Response response = ToDoApi.addToDo(toDoModel, token);
         ToDoModel todoData = response.body().as(ToDoModel.class);
         assertThat(response.statusCode(), equalTo(201));
@@ -24,29 +24,27 @@ public class ToDoTest extends TestBase {
         assertThat(todoData.getItem(), equalTo(toDoModel.getItem()));
     }
 
-    @Test(groups = "todo")
+    @Test(priority = 2, groups = "todo")
     public void getToDoTC() {
-        token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9." +
-                "eyJpZCI6IjY1NzA1MTExYzZkOTBmMDAxNDE0YTljOSIsImZpcnN0TmFtZSI6Im1vaGFtZWQiLCJsYXN0TmFtZSI6InNhYmVyIiwiaWF0IjoxNzAxODYyNjM1fQ." +
-                "717B1Ge9WNThXSRQwmP7iayGCrZfhqtI6bAZWhQL4Ks";
-        String taskId = "6570631ec6d90f001414aa9b";
+        String token = UsersSteps.getToken();
+        ToDoModel toDoModel = ToDoSteps.generateRandomToDo();
+        String taskId = ToDoSteps.getToDoId(toDoModel,token);
         Response response = ToDoApi.getToDo(token, taskId);
         ToDoModel todoData = response.body().as(ToDoModel.class);
         assertThat(response.statusCode(), equalTo(200));
-        assertThat(todoData.getIsCompleted(), equalTo(false));
-        assertThat(todoData.getItem(), equalTo("learn appium"));
+        assertThat(todoData.getIsCompleted(), equalTo(toDoModel.getIsCompleted()));
+        assertThat(todoData.getItem(), equalTo(toDoModel.getItem()));
     }
 
-    @Test(groups = "todo")
+    @Test(priority = 3, groups = "todo")
     public void deleteToDoTC() {
-        token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9." +
-                "eyJpZCI6IjY1NzA1MTExYzZkOTBmMDAxNDE0YTljOSIsImZpcnN0TmFtZSI6Im1vaGFtZWQiLCJsYXN0TmFtZSI6InNhYmVyIiwiaWF0IjoxNzAxODYyNjM1fQ." +
-                "717B1Ge9WNThXSRQwmP7iayGCrZfhqtI6bAZWhQL4Ks";
-        String taskId = "65705d6bc6d90f001414aa35";
+        String token = UsersSteps.getToken();
+        ToDoModel toDoModel = ToDoSteps.generateRandomToDo();
+        String taskId = ToDoSteps.getToDoId(toDoModel,token);
         Response response = ToDoApi.deleteToDo(token, taskId);
         ToDoModel todoData = response.body().as(ToDoModel.class);
         assertThat(response.statusCode(), equalTo(200));
-        assertThat(todoData.getIsCompleted(), equalTo(false));
-        assertThat(todoData.getItem(), equalTo("learn appium"));
+        assertThat(todoData.getIsCompleted(), equalTo(toDoModel.getIsCompleted()));
+        assertThat(todoData.getItem(), equalTo(toDoModel.getItem()));
     }
 }

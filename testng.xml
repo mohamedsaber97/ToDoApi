@@ -4,25 +4,25 @@
     <test name="smoke">
         <groups>
             <run>
-                <include name="auth"/>
-                <exclude name="todo"/>
+                <exclude name="auth"/>
+                <include name="todo"/>
             </run>
         </groups>
         <classes>
             <class name="toDo.testcases.UsersTest">
-                <methods>
-                    <include name="registerNewUserTC"/>
-                    <exclude name="registerExistedUserTC"/>
-                    <exclude name="loginValidUserTC"/>
-                    <exclude name="loginInValidUserTC"/>
-                </methods>
+                <!--                <methods>-->
+                <!--                    <include name="registerNewUserTC"/>-->
+                <!--                    <exclude name="registerExistedUserTC"/>-->
+                <!--                    <exclude name="loginValidUserTC"/>-->
+                <!--                    <exclude name="loginInValidUserTC"/>-->
+                <!--                </methods>-->
             </class>
             <class name="toDo.testcases.ToDoTest">
-                <methods>
-                    <exclude name="addToDoTC"/>
-                    <exclude name="getToDoTC"/>
-                    <exclude name="deleteToDoTC"/>
-                </methods>
+                <!--                <methods>-->
+                <!--                    <exclude name="addToDoTC"/>-->
+                <!--                    <exclude name="getToDoTC"/>-->
+                <!--                    <exclude name="deleteToDoTC"/>-->
+                <!--                </methods>-->
             </class>
         </classes>
     </test>
