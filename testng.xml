@@ -11,7 +11,7 @@
         <classes>
             <class name="toDo.testcases.UsersTest">
                 <methods>
-                    <exclude name="registerNewUserTC"/>
+                    <include name="registerNewUserTC"/>
                     <exclude name="registerExistedUserTC"/>
                     <exclude name="loginValidUserTC"/>
                     <exclude name="loginInValidUserTC"/>
@@ -19,7 +19,7 @@
             </class>
             <class name="toDo.testcases.ToDoTest">
                 <methods>
-                    <include name="addToDoTC"/>
+                    <exclude name="addToDoTC"/>
                     <exclude name="getToDoTC"/>
                     <exclude name="deleteToDoTC"/>
                 </methods>

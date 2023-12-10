@@ -1,41 +1,34 @@
 package toDo.testcases;
 
-import base.TestBase;
-import io.restassured.http.ContentType;
+import io.restassured.response.Response;
 import org.testng.annotations.Test;
+import toDo.apis.UsersApi;
+import toDo.models.ErrorMessage;
 import toDo.models.UsersModel;
 
-import static io.restassured.RestAssured.given;
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.not;
 
-public class UsersTest extends TestBase {
+public class UsersTest {
 
 
     @Test(groups = "auth")
     public void registerNewUserTC() {
-        UsersModel usersModel = new UsersModel("mohamed", "saber", "msaber9765@gmail.com", "12345678");
-        given().baseUri(baseUrl)
-                .contentType(ContentType.JSON)
-                .body(usersModel)
-                .when().post("users/register")
-                .then().log().status()
-                .log().body()
-                .assertThat().statusCode(201)
-                .assertThat().body("firstName", equalTo("mohamed"));
+        UsersModel usersModel = new UsersModel("mohamed", "saber", "msaber97659@gmail.com", "12345678");
+        Response response = UsersApi.registerNewUser(usersModel);
+        UsersModel resultData = response.body().as(UsersModel.class);
+        assertThat(response.statusCode(), equalTo(201));
+        assertThat(resultData.getFirstName(), equalTo(usersModel.getFirstName()));
     }
 
     @Test(groups = "auth")
     public void registerExistedUserTC() {
         UsersModel usersModel = new UsersModel("mohamed", "saber", "msaber9765@gmail.com", "12345678");
-        given().baseUri(baseUrl)
-                .contentType(ContentType.JSON)
-                .body(usersModel)
-                .when().post("users/register")
-                .then().log().status()
-                .log().body()
-                .assertThat().statusCode(400)
-                .assertThat().body("message", equalTo("Email is already exists in the Database"));
+        Response response = UsersApi.registerExistedUser(usersModel);
+        ErrorMessage errorMessage = response.body().as(ErrorMessage.class);
+        assertThat(response.statusCode(), equalTo(400));
+        assertThat(errorMessage.getMessage(), equalTo("Email is already exists in the Database"));
     }
 
     @Test(groups = "auth")
@@ -43,16 +36,11 @@ public class UsersTest extends TestBase {
         UsersModel usersModel = new UsersModel();
         usersModel.setEmail("msaber9765@gmail.com");
         usersModel.setPassword("12345678");
-
-        given().baseUri(baseUrl)
-                .contentType(ContentType.JSON)
-                .body(usersModel)
-                .when().post("users/login")
-                .then().log().status()
-                .log().body()
-                .assertThat().statusCode(200)
-                .assertThat().body("firstName", equalTo("mohamed"))
-                .assertThat().body("access_token", not(equalTo(null)));
+        Response response = UsersApi.loginValidUser(usersModel);
+        UsersModel resultData = response.body().as(UsersModel.class);
+        assertThat(response.statusCode(), equalTo(200));
+        assertThat(resultData.getFirstName(), equalTo("mohamed"));
+        assertThat(resultData.getAccessToken(), not(equalTo(null)));
     }
 
     @Test(groups = "auth")
@@ -60,14 +48,9 @@ public class UsersTest extends TestBase {
         UsersModel usersModel = new UsersModel();
         usersModel.setEmail("msaber9765@gmail.commm");
         usersModel.setPassword("12345678");
-
-        given().baseUri(baseUrl)
-                .contentType(ContentType.JSON)
-                .body(usersModel)
-                .when().post("users/login")
-                .then().log().status()
-                .log().body()
-                .assertThat().statusCode(400)
-                .assertThat().body("message", equalTo("Please Fill a correct Password"));
+        Response response = UsersApi.loginInValidUser(usersModel);
+        ErrorMessage errorMessage = response.body().as(ErrorMessage.class);
+        assertThat(response.statusCode(), equalTo(400));
+        assertThat(errorMessage.getMessage(), equalTo("Please Fill a correct Password"));
     }
 }

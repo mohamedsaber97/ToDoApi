@@ -12,7 +12,7 @@ public class UsersModel {
     private String password;
     @JsonProperty("access_token")
     private String accessToken;
-    private String userId;
+    private String userID;
 
     public UsersModel() {
     }
@@ -66,11 +66,11 @@ public class UsersModel {
         this.accessToken = accessToken;
     }
 
-    public String getUserId() {
-        return userId;
+    public String getUserID() {
+        return userID;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    public void setUserID(String userID) {
+        this.userID = userID;
     }
 }
