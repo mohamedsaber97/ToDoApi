@@ -3,7 +3,7 @@ package toDo.testcases;
 import io.restassured.response.Response;
 import org.testng.annotations.Test;
 import toDo.apis.UsersApi;
-import toDo.models.ErrorMessage;
+import toDo.models.ErrorMessageModel;
 import toDo.models.UsersModel;
 import toDo.steps.UsersSteps;
 
@@ -27,9 +27,9 @@ public class UsersTest {
     public void registerExistedUserTC() {
         UsersModel usersModel = UsersSteps.getRegisteredUser();
         Response response = UsersApi.registerExistedUser(usersModel);
-        ErrorMessage errorMessage = response.body().as(ErrorMessage.class);
+        ErrorMessageModel errorMessageModel = response.body().as(ErrorMessageModel.class);
         assertThat(response.statusCode(), equalTo(400));
-        assertThat(errorMessage.getMessage(), equalTo("Email is already exists in the Database"));
+        assertThat(errorMessageModel.getMessage(), equalTo("Email is already exists in the Database"));
     }
 
     @Test(priority = 3, groups = "auth")
@@ -48,8 +48,8 @@ public class UsersTest {
         UsersModel usersModel = UsersSteps.getRegisteredUser();
         UsersModel loginUser = new UsersModel(usersModel.getEmail(), "wrong pass");
         Response response = UsersApi.loginInValidUser(loginUser);
-        ErrorMessage errorMessage = response.body().as(ErrorMessage.class);
+        ErrorMessageModel errorMessageModel = response.body().as(ErrorMessageModel.class);
         assertThat(response.statusCode(), equalTo(401));
-        assertThat(errorMessage.getMessage(), equalTo("The email and password combination is not correct, please fill a correct email and password"));
+        assertThat(errorMessageModel.getMessage(), equalTo("The email and password combination is not correct, please fill a correct email and password"));
     }
 }

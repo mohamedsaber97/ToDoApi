@@ -4,7 +4,7 @@
     <test name="smoke">
         <groups>
             <run>
-                <exclude name="auth"/>
+                <include name="auth"/>
                 <include name="todo"/>
             </run>
         </groups>

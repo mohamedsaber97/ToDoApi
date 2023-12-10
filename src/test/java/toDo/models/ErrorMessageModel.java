@@ -1,6 +1,6 @@
 package toDo.models;
 
-public class ErrorMessage {
+public class ErrorMessageModel {
 
     private String message;
 
