@@ -2,49 +2,49 @@
 <testng-results ignored="0" total="7" passed="7" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-12-10T17:14:25 EET" name="ToDo Api" finished-at="2023-12-10T17:14:36 EET" duration-ms="11208">
+  <suite started-at="2023-12-12T21:26:07 EET" name="ToDo Api" finished-at="2023-12-12T21:26:16 EET" duration-ms="9445">
     <groups>
       <group name="todo">
-        <method signature="ToDoTest.addToDoTC()[pri:1, instance:toDo.testcases.ToDoTest@5c671d7f]" name="addToDoTC" class="toDo.testcases.ToDoTest"/>
-        <method signature="ToDoTest.getToDoTC()[pri:2, instance:toDo.testcases.ToDoTest@5c671d7f]" name="getToDoTC" class="toDo.testcases.ToDoTest"/>
-        <method signature="ToDoTest.deleteToDoTC()[pri:3, instance:toDo.testcases.ToDoTest@5c671d7f]" name="deleteToDoTC" class="toDo.testcases.ToDoTest"/>
+        <method signature="ToDoTest.addToDoTC()[pri:1, instance:toDo.testcases.ToDoTest@37883b97]" name="addToDoTC" class="toDo.testcases.ToDoTest"/>
+        <method signature="ToDoTest.getToDoTC()[pri:2, instance:toDo.testcases.ToDoTest@37883b97]" name="getToDoTC" class="toDo.testcases.ToDoTest"/>
+        <method signature="ToDoTest.deleteToDoTC()[pri:3, instance:toDo.testcases.ToDoTest@37883b97]" name="deleteToDoTC" class="toDo.testcases.ToDoTest"/>
       </group> <!-- todo -->
       <group name="auth">
-        <method signature="UsersTest.registerNewUserTC()[pri:1, instance:toDo.testcases.UsersTest@33c911a1]" name="registerNewUserTC" class="toDo.testcases.UsersTest"/>
-        <method signature="UsersTest.registerExistedUserTC()[pri:2, instance:toDo.testcases.UsersTest@33c911a1]" name="registerExistedUserTC" class="toDo.testcases.UsersTest"/>
-        <method signature="UsersTest.loginValidUserTC()[pri:3, instance:toDo.testcases.UsersTest@33c911a1]" name="loginValidUserTC" class="toDo.testcases.UsersTest"/>
-        <method signature="UsersTest.loginInValidUserTC()[pri:4, instance:toDo.testcases.UsersTest@33c911a1]" name="loginInValidUserTC" class="toDo.testcases.UsersTest"/>
+        <method signature="UsersTest.registerNewUserTC()[pri:1, instance:toDo.testcases.UsersTest@f79e]" name="registerNewUserTC" class="toDo.testcases.UsersTest"/>
+        <method signature="UsersTest.registerExistedUserTC()[pri:2, instance:toDo.testcases.UsersTest@f79e]" name="registerExistedUserTC" class="toDo.testcases.UsersTest"/>
+        <method signature="UsersTest.loginValidUserTC()[pri:3, instance:toDo.testcases.UsersTest@f79e]" name="loginValidUserTC" class="toDo.testcases.UsersTest"/>
+        <method signature="UsersTest.loginInValidUserTC()[pri:4, instance:toDo.testcases.UsersTest@f79e]" name="loginInValidUserTC" class="toDo.testcases.UsersTest"/>
       </group> <!-- auth -->
     </groups>
-    <test started-at="2023-12-10T17:14:25 EET" name="smoke" finished-at="2023-12-10T17:14:36 EET" duration-ms="11208">
+    <test started-at="2023-12-12T21:26:07 EET" name="smoke" finished-at="2023-12-12T21:26:16 EET" duration-ms="9445">
       <class name="toDo.testcases.ToDoTest">
-        <test-method signature="addToDoTC()[pri:1, instance:toDo.testcases.ToDoTest@5c671d7f]" started-at="2023-12-10T17:14:31 EET" name="addToDoTC" finished-at="2023-12-10T17:14:33 EET" duration-ms="1516" status="PASS">
+        <test-method signature="addToDoTC()[pri:1, instance:toDo.testcases.ToDoTest@37883b97]" started-at="2023-12-12T21:26:12 EET" name="addToDoTC" finished-at="2023-12-12T21:26:14 EET" duration-ms="1335" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- addToDoTC -->
-        <test-method signature="getToDoTC()[pri:2, instance:toDo.testcases.ToDoTest@5c671d7f]" started-at="2023-12-10T17:14:33 EET" name="getToDoTC" finished-at="2023-12-10T17:14:35 EET" duration-ms="2208" status="PASS">
+        <test-method signature="getToDoTC()[pri:2, instance:toDo.testcases.ToDoTest@37883b97]" started-at="2023-12-12T21:26:14 EET" name="getToDoTC" finished-at="2023-12-12T21:26:15 EET" duration-ms="1400" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getToDoTC -->
-        <test-method signature="deleteToDoTC()[pri:3, instance:toDo.testcases.ToDoTest@5c671d7f]" started-at="2023-12-10T17:14:35 EET" name="deleteToDoTC" finished-at="2023-12-10T17:14:36 EET" duration-ms="1660" status="PASS">
+        <test-method signature="deleteToDoTC()[pri:3, instance:toDo.testcases.ToDoTest@37883b97]" started-at="2023-12-12T21:26:15 EET" name="deleteToDoTC" finished-at="2023-12-12T21:26:16 EET" duration-ms="1395" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- deleteToDoTC -->
       </class> <!-- toDo.testcases.ToDoTest -->
       <class name="toDo.testcases.UsersTest">
-        <test-method signature="registerNewUserTC()[pri:1, instance:toDo.testcases.UsersTest@33c911a1]" started-at="2023-12-10T17:14:25 EET" name="registerNewUserTC" finished-at="2023-12-10T17:14:27 EET" duration-ms="2064" status="PASS">
+        <test-method signature="registerNewUserTC()[pri:1, instance:toDo.testcases.UsersTest@f79e]" started-at="2023-12-12T21:26:07 EET" name="registerNewUserTC" finished-at="2023-12-12T21:26:09 EET" duration-ms="2056" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- registerNewUserTC -->
-        <test-method signature="registerExistedUserTC()[pri:2, instance:toDo.testcases.UsersTest@33c911a1]" started-at="2023-12-10T17:14:27 EET" name="registerExistedUserTC" finished-at="2023-12-10T17:14:29 EET" duration-ms="1152" status="PASS">
+        <test-method signature="registerExistedUserTC()[pri:2, instance:toDo.testcases.UsersTest@f79e]" started-at="2023-12-12T21:26:09 EET" name="registerExistedUserTC" finished-at="2023-12-12T21:26:10 EET" duration-ms="1026" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- registerExistedUserTC -->
-        <test-method signature="loginValidUserTC()[pri:3, instance:toDo.testcases.UsersTest@33c911a1]" started-at="2023-12-10T17:14:29 EET" name="loginValidUserTC" finished-at="2023-12-10T17:14:30 EET" duration-ms="1234" status="PASS">
+        <test-method signature="loginValidUserTC()[pri:3, instance:toDo.testcases.UsersTest@f79e]" started-at="2023-12-12T21:26:10 EET" name="loginValidUserTC" finished-at="2023-12-12T21:26:11 EET" duration-ms="1116" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- loginValidUserTC -->
-        <test-method signature="loginInValidUserTC()[pri:4, instance:toDo.testcases.UsersTest@33c911a1]" started-at="2023-12-10T17:14:30 EET" name="loginInValidUserTC" finished-at="2023-12-10T17:14:31 EET" duration-ms="1334" status="PASS">
+        <test-method signature="loginInValidUserTC()[pri:4, instance:toDo.testcases.UsersTest@f79e]" started-at="2023-12-12T21:26:11 EET" name="loginInValidUserTC" finished-at="2023-12-12T21:26:12 EET" duration-ms="1076" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- loginInValidUserTC -->

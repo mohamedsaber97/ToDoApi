@@ -3,6 +3,7 @@ package toDo.testcases;
 import io.restassured.response.Response;
 import org.testng.annotations.Test;
 import toDo.apis.UsersApi;
+import toDo.data.ErrorMessages;
 import toDo.models.ErrorMessageModel;
 import toDo.models.UsersModel;
 import toDo.steps.UsersSteps;
@@ -29,7 +30,7 @@ public class UsersTest {
         Response response = UsersApi.registerExistedUser(usersModel);
         ErrorMessageModel errorMessageModel = response.body().as(ErrorMessageModel.class);
         assertThat(response.statusCode(), equalTo(400));
-        assertThat(errorMessageModel.getMessage(), equalTo("Email is already exists in the Database"));
+        assertThat(errorMessageModel.getMessage(), equalTo(ErrorMessages.DUPLICATED_EMAIL));
     }
 
     @Test(priority = 3, groups = "auth")
@@ -50,6 +51,6 @@ public class UsersTest {
         Response response = UsersApi.loginInValidUser(loginUser);
         ErrorMessageModel errorMessageModel = response.body().as(ErrorMessageModel.class);
         assertThat(response.statusCode(), equalTo(401));
-        assertThat(errorMessageModel.getMessage(), equalTo("The email and password combination is not correct, please fill a correct email and password"));
+        assertThat(errorMessageModel.getMessage(), equalTo(ErrorMessages.INCORRECT_USER_DATA));
     }
 }

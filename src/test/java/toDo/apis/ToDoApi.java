@@ -1,17 +1,16 @@
 package toDo.apis;
 
 import base.TestBase;
-import io.restassured.http.ContentType;
 import io.restassured.response.Response;
+import toDo.data.Routes;
 import toDo.models.ToDoModel;
 
 import static io.restassured.RestAssured.given;
 
-public class ToDoApi extends TestBase {
+public class ToDoApi {
 
     public static Response addToDo(ToDoModel toDoModel, String token) {
-        return given().baseUri(baseUrl)
-                .contentType(ContentType.JSON)
+        return given().spec(TestBase.getRequestSpec())
                 .body(toDoModel)
                 .auth().oauth2(token)
                 .when().post("tasks")
@@ -21,20 +20,18 @@ public class ToDoApi extends TestBase {
     }
 
     public static Response getToDo(String token, String taskId) {
-        return given().baseUri(baseUrl)
-                .contentType(ContentType.JSON)
+        return given().spec(TestBase.getRequestSpec())
                 .auth().oauth2(token)
-                .when().get("tasks/" + taskId)
+                .when().get(Routes.TODO_ROUTE + "/" + taskId)
                 .then().log().status()
                 .log().body()
                 .extract().response();
     }
 
     public static Response deleteToDo(String token, String taskId) {
-        return given().baseUri(baseUrl)
-                .contentType(ContentType.JSON)
+        return given().spec(TestBase.getRequestSpec())
                 .auth().oauth2(token)
-                .when().delete("tasks/" + taskId)
+                .when().delete(Routes.TODO_ROUTE + "/" + taskId)
                 .then().log().status()
                 .log().body()
                 .extract().response();

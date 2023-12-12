@@ -1,48 +1,49 @@
 package toDo.apis;
 
 import base.TestBase;
-import io.restassured.http.ContentType;
 import io.restassured.response.Response;
+import toDo.data.Routes;
 import toDo.models.UsersModel;
 
 import static io.restassured.RestAssured.given;
 
-public class UsersApi extends TestBase {
+public class UsersApi {
 
     public static Response registerNewUser(UsersModel usersModel) {
-        return given().baseUri(baseUrl)
-                .contentType(ContentType.JSON)
+        return given()
+                .spec(TestBase.getRequestSpec())
                 .body(usersModel)
-                .when().post("users/register")
+                .when().post(Routes.REGISTER_ROUTE)
                 .then().log().status()
                 .log().body()
                 .extract().response();
     }
 
     public static Response registerExistedUser(UsersModel usersModel) {
-        return given().baseUri(baseUrl)
-                .contentType(ContentType.JSON)
+        return given()
+                .spec(TestBase.getRequestSpec())
                 .body(usersModel)
-                .when().post("users/register")
+                .when().post(Routes.REGISTER_ROUTE)
                 .then().log().status()
                 .log().body()
                 .extract().response();
     }
 
     public static Response loginValidUser(UsersModel usersModel) {
-        return given().baseUri(baseUrl)
-                .contentType(ContentType.JSON)
+        return given()
+                .spec(TestBase.getRequestSpec())
                 .body(usersModel)
-                .when().post("users/login")
+                .when().post(Routes.LOGIN_ROUTE)
                 .then().log().status()
                 .log().body()
                 .extract().response();
     }
+
     public static Response loginInValidUser(UsersModel usersModel) {
-        return given().baseUri(baseUrl)
-                .contentType(ContentType.JSON)
+        return given()
+                .spec(TestBase.getRequestSpec())
                 .body(usersModel)
-                .when().post("users/login")
+                .when().post(Routes.LOGIN_ROUTE)
                 .then().log().status()
                 .log().body()
                 .extract().response();

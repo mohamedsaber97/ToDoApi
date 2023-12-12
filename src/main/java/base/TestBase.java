@@ -1,6 +1,16 @@
 package base;
 
-public class TestBase {
+import io.restassured.specification.RequestSpecification;
 
-    public static String baseUrl = "https://qacart-todo.herokuapp.com/api/v1/";
+import static io.restassured.RestAssured.given;
+
+import io.restassured.http.ContentType;
+
+public class TestBase {
+    public static RequestSpecification getRequestSpec() {
+        return given()
+                .baseUri("https://qacart-todo.herokuapp.com/api/v1/")
+                .contentType(ContentType.JSON)
+                .log().body();
+    }
 }
