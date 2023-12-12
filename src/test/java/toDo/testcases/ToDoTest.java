@@ -1,6 +1,5 @@
 package toDo.testcases;
 
-import base.TestBase;
 import io.restassured.response.Response;
 import org.testng.annotations.Test;
 import toDo.apis.ToDoApi;
@@ -11,7 +10,7 @@ import toDo.steps.UsersSteps;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 
-public class ToDoTest extends TestBase {
+public class ToDoTest{
 
     @Test(priority = 1, groups = "todo")
     public void addToDoTC() {

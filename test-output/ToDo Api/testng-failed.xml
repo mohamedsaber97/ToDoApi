@@ -4,15 +4,24 @@
   <test thread-count="5" name="smoke(failed)">
     <groups>
       <run>
+        <include name="auth"/>
         <include name="todo"/>
-        <exclude name="auth"/>
       </run>
     </groups>
     <classes>
+      <class name="toDo.testcases.UsersTest">
+        <methods>
+          <include name="loginValidUserTC"/>
+          <include name="registerExistedUserTC"/>
+          <include name="loginInValidUserTC"/>
+          <include name="registerNewUserTC"/>
+        </methods>
+      </class> <!-- toDo.testcases.UsersTest -->
       <class name="toDo.testcases.ToDoTest">
         <methods>
           <include name="deleteToDoTC"/>
           <include name="getToDoTC"/>
+          <include name="addToDoTC"/>
         </methods>
       </class> <!-- toDo.testcases.ToDoTest -->
     </classes>
