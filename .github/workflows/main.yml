@@ -14,5 +14,5 @@ jobs:
         with:
           java-version: "11"
           distribution: 'temurin'
-          cash: maven
+          cache: maven
       - run: mvn clean test
