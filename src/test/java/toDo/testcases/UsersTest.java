@@ -1,5 +1,8 @@
 package toDo.testcases;
 
+import io.qameta.allure.Description;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
 import io.restassured.response.Response;
 import org.testng.annotations.Test;
 import toDo.apis.UsersApi;
@@ -12,9 +15,11 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.not;
 
+@Feature("Auth Feature")
 public class UsersTest {
 
-
+    @Story("Register Story")
+    @Description("Register New User TC")
     @Test(priority = 1, groups = "auth")
     public void registerNewUserTC() {
         UsersModel usersModel = UsersSteps.generateRandomUser();
@@ -24,6 +29,8 @@ public class UsersTest {
         assertThat(resultData.getFirstName(), equalTo(usersModel.getFirstName()));
     }
 
+    @Story("Register Story")
+    @Description("Register Existed User TC")
     @Test(priority = 2, groups = "auth")
     public void registerExistedUserTC() {
         UsersModel usersModel = UsersSteps.getRegisteredUser();
@@ -33,6 +40,8 @@ public class UsersTest {
         assertThat(errorMessageModel.getMessage(), equalTo(ErrorMessages.DUPLICATED_EMAIL));
     }
 
+    @Story("Login Story")
+    @Description("Login Valid User TC")
     @Test(priority = 3, groups = "auth")
     public void loginValidUserTC() {
         UsersModel usersModel = UsersSteps.getRegisteredUser();
@@ -44,6 +53,8 @@ public class UsersTest {
         assertThat(resultData.getAccessToken(), not(equalTo(null)));
     }
 
+    @Story("Login Story")
+    @Description("Login InValid User TC")
     @Test(priority = 4, groups = "auth")
     public void loginInValidUserTC() {
         UsersModel usersModel = UsersSteps.getRegisteredUser();
