@@ -19,7 +19,7 @@ public class TestBase {
                 baseUrl = "https://localhost:8888";
                 break;
             default:
-                throw new RuntimeException("Environment is not supported");
+                throw new RuntimeException("-----Environment is not supported-----");
         }
         return baseUrl;
     }

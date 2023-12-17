@@ -13,7 +13,7 @@ public class ToDoApi {
         return given().spec(TestBase.getRequestSpec())
                 .body(toDoModel)
                 .auth().oauth2(token)
-                .when().post("tasks")
+                .when().post(Routes.TODO_ROUTE)
                 .then().log().status()
                 .log().body()
                 .extract().response();
