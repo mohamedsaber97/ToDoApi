@@ -4,6 +4,6 @@ public class Printers {
 
     public void pintData() {
         System.out.println("request1");
-        System.out.println("fixed");
+        System.out.println("fix");
     }
 }
