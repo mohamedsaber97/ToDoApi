@@ -44,6 +44,18 @@ public class ToDoTest {
     }
 
     @Story("ToDo Story")
+    @Description("Get ToDo TC")
+    @Test(priority = 2, groups = "todo")
+    public void getDetailsTC() {
+        ToDoModel random = new ToDoModel();
+        ToDoModel toDoData = new ToDoModel();
+        Response data = ToDoSteps.getDetails(random, toDoData);
+        assertThat(data.statusCode(), equalTo(200));
+        assertThat(toDoData.getIsCompleted(), equalTo(random.getIsCompleted()));
+        assertThat(toDoData.getItem(), equalTo(random.getItem()));
+    }
+
+    @Story("ToDo Story")
     @Description("Delete ToDo TC")
     @Test(priority = 3, groups = "todo")
     public void deleteToDoTC() {
