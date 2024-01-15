@@ -17,15 +17,15 @@ public class UsersSteps {
         return new UsersModel(firstName, lastName, email, pass);
     }
 
-    public static UsersModel getRegisteredUser(){
+    public static UsersModel getRegisteredUser() {
         UsersModel usersModel = generateRandomUser();
         UsersApi.registerNewUser(usersModel);
         return usersModel;
     }
 
-    public static String getToken(){
+    public static String getToken() {
         UsersModel usersModel = generateRandomUser();
-        Response response=UsersApi.registerNewUser(usersModel);
+        Response response = UsersApi.registerNewUser(usersModel);
         return response.body().path("access_token");
     }
 }
