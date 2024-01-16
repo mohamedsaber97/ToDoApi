@@ -11,7 +11,7 @@ public class UsersApi {
 
     public static Response registerNewUser(UsersModel usersModel) {
         return given()
-                .spec(TestBase.getRequestSpec())
+                .spec(TestBase.getRequestSpec(TestBase.TODO_APP_HOST))
                 .body(usersModel)
                 .when().post(Routes.REGISTER_ROUTE)
                 .then().log().status()
@@ -21,7 +21,7 @@ public class UsersApi {
 
     public static Response registerExistedUser(UsersModel usersModel) {
         return given()
-                .spec(TestBase.getRequestSpec())
+                .spec(TestBase.getRequestSpec(TestBase.TODO_APP_HOST))
                 .body(usersModel)
                 .when().post(Routes.REGISTER_ROUTE)
                 .then().log().status()
@@ -31,7 +31,7 @@ public class UsersApi {
 
     public static Response loginValidUser(UsersModel usersModel) {
         return given()
-                .spec(TestBase.getRequestSpec())
+                .spec(TestBase.getRequestSpec(TestBase.TODO_APP_HOST))
                 .body(usersModel)
                 .when().post(Routes.LOGIN_ROUTE)
                 .then().log().status()
@@ -41,7 +41,7 @@ public class UsersApi {
 
     public static Response loginInValidUser(UsersModel usersModel) {
         return given()
-                .spec(TestBase.getRequestSpec())
+                .spec(TestBase.getRequestSpec(TestBase.TODO_APP_HOST))
                 .body(usersModel)
                 .when().post(Routes.LOGIN_ROUTE)
                 .then().log().status()

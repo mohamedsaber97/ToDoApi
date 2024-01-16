@@ -10,7 +10,7 @@ import static io.restassured.RestAssured.given;
 public class ToDoApi {
 
     public static Response addToDo(ToDoModel toDoModel, String token) {
-        return given().spec(TestBase.getRequestSpec())
+        return given().spec(TestBase.getRequestSpec(TestBase.TODO_APP_HOST))
                 .body(toDoModel)
                 .auth().oauth2(token)
                 .when().post(Routes.TODO_ROUTE)
@@ -20,7 +20,7 @@ public class ToDoApi {
     }
 
     public static Response getToDo(String token, String taskId) {
-        return given().spec(TestBase.getRequestSpec())
+        return given().spec(TestBase.getRequestSpec(TestBase.TODO_APP_HOST))
                 .auth().oauth2(token)
                 .when().get(Routes.TODO_ROUTE + "/" + taskId)
                 .then().log().status()
@@ -29,7 +29,7 @@ public class ToDoApi {
     }
 
     public static Response deleteToDo(String token, String taskId) {
-        return given().spec(TestBase.getRequestSpec())
+        return given().spec(TestBase.getRequestSpec(TestBase.TODO_APP_HOST))
                 .auth().oauth2(token)
                 .when().delete(Routes.TODO_ROUTE + "/" + taskId)
                 .then().log().status()
