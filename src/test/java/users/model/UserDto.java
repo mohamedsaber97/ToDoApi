@@ -18,8 +18,6 @@ public class UserDto {
     private String accessToken;
     @JsonProperty("userID")
     private String userID;
-    @JsonProperty("message")
-    private String message;
 
     public UserDto() {
     }
@@ -27,6 +25,11 @@ public class UserDto {
     public UserDto(String firstName, String lastName, String email, String password) {
         this.firstName = firstName;
         this.lastName = lastName;
+        this.email = email;
+        this.password = password;
+    }
+
+    public UserDto(String email, String password) {
         this.email = email;
         this.password = password;
     }
