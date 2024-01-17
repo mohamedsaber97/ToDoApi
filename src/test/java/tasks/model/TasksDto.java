@@ -1,25 +1,30 @@
-package toDo.models;
+package tasks.model;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class ToDoModel {
-
+public class TasksDto {
     @JsonProperty("isCompleted")
     private Boolean isCompleted;
     @JsonProperty("_id")
     private String id;
+    @JsonProperty("item")
     private String item;
+
+    @JsonProperty("userID")
     private String userID;
+
+    @JsonProperty("createdAt")
     private String createdAt;
+
     @JsonProperty("__v")
     private String v;
 
-    public ToDoModel() {
+    public TasksDto() {
     }
 
-    public ToDoModel(Boolean isCompleted, String item) {
+    public TasksDto(Boolean isCompleted, String item) {
         this.isCompleted = isCompleted;
         this.item = item;
     }
@@ -29,53 +34,28 @@ public class ToDoModel {
         return isCompleted;
     }
 
-    @JsonProperty("isCompleted")
-    public void setCompleted(Boolean completed) {
-        isCompleted = completed;
-    }
-
     @JsonProperty("_id")
     public String getId() {
         return id;
     }
 
-    @JsonProperty("_id")
-    public void setId(String id) {
-        this.id = id;
-    }
-
+    @JsonProperty("item")
     public String getItem() {
         return item;
     }
 
-    public void setItem(String item) {
-        this.item = item;
-    }
-
+    @JsonProperty("userID")
     public String getUserID() {
         return userID;
     }
 
-    public void setUserID(String userID) {
-        this.userID = userID;
-    }
-
+    @JsonProperty("createdAt")
     public String getCreatedAt() {
         return createdAt;
-    }
-
-    public void setCreatedAt(String createdAt) {
-        this.createdAt = createdAt;
     }
 
     @JsonProperty("__v")
     public String getV() {
         return v;
     }
-
-    @JsonProperty("__v")
-    public void setV(String v) {
-        this.v = v;
-    }
-
 }

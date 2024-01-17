@@ -4,7 +4,6 @@ import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
 import io.restassured.http.ContentType;
-import users.model.ApiMethodTypes;
 
 import static io.restassured.RestAssured.*;
 
@@ -35,7 +34,7 @@ public class TestBase {
                 .log().all();
     }
 
-    public static Response sendApiRequest(String baseUrl, Object object, ApiMethodTypes apiMethodTypes, String endPoint) {
+    public static Response sendApiRequest(String baseUrl, Object object, ApiMethodTypes apiMethodTypes, String endPoint, String token) {
         Response response;
         switch (apiMethodTypes) {
             case POST:
@@ -43,40 +42,49 @@ public class TestBase {
                         .baseUri(baseUrl)
                         .contentType(ContentType.JSON)
                         .body(object)
+                        .auth().oauth2(token)
                         .when().post(endPoint)
-                        .then().log().all()
+                        .then().log().body()
                         .extract().response();
                 break;
             case GET:
                 response = given()
                         .baseUri(baseUrl)
                         .contentType(ContentType.JSON)
+                        .body(object)
+                        .auth().oauth2(token)
                         .when().get(endPoint)
-                        .then().log().all()
+                        .then().log().body()
                         .extract().response();
                 break;
             case PUT:
                 response = given()
                         .baseUri(baseUrl)
                         .contentType(ContentType.JSON)
+                        .body(object)
+                        .auth().oauth2(token)
                         .when().put(endPoint)
-                        .then().log().all()
+                        .then().log().body()
                         .extract().response();
                 break;
             case DELETE:
                 response = given()
                         .baseUri(baseUrl)
                         .contentType(ContentType.JSON)
+                        .body(object)
+                        .auth().oauth2(token)
                         .when().delete(endPoint)
-                        .then().log().all()
+                        .then().log().body()
                         .extract().response();
                 break;
             case PATCH:
                 response = given()
                         .baseUri(baseUrl)
                         .contentType(ContentType.JSON)
+                        .body(object)
+                        .auth().oauth2(token)
                         .when().patch(endPoint)
-                        .then().log().all()
+                        .then().log().body()
                         .extract().response();
                 break;
             default:

@@ -50,7 +50,7 @@ public class UsersTest {
     public void verifyInvalidLogin() {
         UserDto userDto = usersTestHelper.getRegisteredUser();
         UserDto loginData = new UserDto(userDto.getEmail(), "wrong password");
-        Response response = usersTestHelper.loginValidUser(loginData);
+        Response response = usersTestHelper.loginInvalidUser(loginData);
         Assert.assertEquals(response.getStatusCode(), 401, "error status code is " + response.getStatusCode());
         Assert.assertEquals(response.jsonPath().getString("message"), UsersLocale.INCORRECT_USER_DATA_MSG,
                 "user login with invalid data");

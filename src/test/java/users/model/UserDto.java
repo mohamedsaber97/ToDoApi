@@ -34,18 +34,22 @@ public class UserDto {
         this.password = password;
     }
 
+    @JsonProperty("firstName")
     public String getFirstName() {
         return firstName;
     }
 
+    @JsonProperty("lastName")
     public String getLastName() {
         return lastName;
     }
 
+    @JsonProperty("email")
     public String getEmail() {
         return email;
     }
 
+    @JsonProperty("password")
     public String getPassword() {
         return password;
     }

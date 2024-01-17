@@ -1,4 +1,4 @@
-package users.model;
+package base;
 
 public enum ApiMethodTypes {
 

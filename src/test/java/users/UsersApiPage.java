@@ -2,7 +2,7 @@ package users;
 
 import base.TestBase;
 import io.restassured.response.Response;
-import users.model.ApiMethodTypes;
+import base.ApiMethodTypes;
 import users.model.UserDto;
 
 public class UsersApiPage {
@@ -11,7 +11,8 @@ public class UsersApiPage {
                 TestBase.TODO_APP_HOST,
                 userDto,
                 ApiMethodTypes.POST,
-                UsersLocale.REGISTER_ROUTE);
+                UsersLocale.REGISTER_ROUTE,
+                "");
     }
 
     public Response checkRegisteredUser(UserDto userDto) {
@@ -19,7 +20,8 @@ public class UsersApiPage {
                 TestBase.TODO_APP_HOST,
                 userDto,
                 ApiMethodTypes.POST,
-                UsersLocale.REGISTER_ROUTE);
+                UsersLocale.REGISTER_ROUTE,
+                "");
     }
 
     public Response loginValidUser(UserDto userDto) {
@@ -27,13 +29,16 @@ public class UsersApiPage {
                 TestBase.TODO_APP_HOST,
                 userDto,
                 ApiMethodTypes.POST,
-                UsersLocale.LOGIN_ROUTE);
+                UsersLocale.LOGIN_ROUTE,
+                "");
     }
+
     public Response loginInvalidUser(UserDto userDto) {
         return TestBase.sendApiRequest(
                 TestBase.TODO_APP_HOST,
                 userDto,
                 ApiMethodTypes.POST,
-                UsersLocale.LOGIN_ROUTE);
+                UsersLocale.LOGIN_ROUTE,
+                "");
     }
 }

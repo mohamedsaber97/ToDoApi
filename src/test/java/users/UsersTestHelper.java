@@ -43,4 +43,10 @@ public class UsersTestHelper {
         System.out.println("-----loginInvalidUser for login invalid user in app-----");
         return usersApiPage.loginValidUser(userDto);
     }
+
+    public String getToken() {
+        UserDto userDto = createRandomUser();
+        Response response = addNewUser(userDto);
+        return response.jsonPath().get("access_token");
+    }
 }
