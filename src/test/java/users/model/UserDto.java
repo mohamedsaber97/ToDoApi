@@ -14,13 +14,6 @@ public class UserDto {
     private String email;
     @JsonProperty("password")
     private String password;
-    @JsonProperty("accessToken")
-    private String accessToken;
-    @JsonProperty("userID")
-    private String userID;
-
-    public UserDto() {
-    }
 
     public UserDto(String firstName, String lastName, String email, String password) {
         this.firstName = firstName;
@@ -37,11 +30,6 @@ public class UserDto {
     @JsonProperty("firstName")
     public String getFirstName() {
         return firstName;
-    }
-
-    @JsonProperty("lastName")
-    public String getLastName() {
-        return lastName;
     }
 
     @JsonProperty("email")

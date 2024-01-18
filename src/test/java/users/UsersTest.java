@@ -45,8 +45,8 @@ public class UsersTest {
     }
 
     @Story("Login Story")
-    @Description("Login Valid User TC")
-    @Test(priority = 3, groups = "auth")
+    @Description("Login Invalid User TC")
+    @Test(priority = 4, groups = "auth")
     public void verifyInvalidLogin() {
         UserDto userDto = usersTestHelper.getRegisteredUser();
         UserDto loginData = new UserDto(userDto.getEmail(), "wrong password");

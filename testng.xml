@@ -5,11 +5,12 @@
         <groups>
             <run>
                 <include name="auth"/>
-                <exclude name="todo"/>
+                <include name="todo"/>
             </run>
         </groups>
         <classes>
             <class name="users.UsersTest"/>
+            <class name="tasks.TasksTest"/>
         </classes>
     </test>
 </suite>
