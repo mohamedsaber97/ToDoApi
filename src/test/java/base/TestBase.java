@@ -1,7 +1,8 @@
 package base;
 
 import io.restassured.response.Response;
-import io.restassured.http.ContentType;
+import java.util.HashMap;
+import java.util.Map;
 
 import static io.restassured.RestAssured.*;
 
@@ -25,13 +26,23 @@ public class TestBase {
 //        return baseUrl;
 //    }
 
+    public static Map<String, Object> getHeaders() {
+        Map<String, Object> headers = new HashMap<>();
+        headers.put("Content-Type", "application/json");
+        headers.put("User-Agent", "PostmanRuntime/7.36.1");
+        headers.put("Accept", "*/*");
+        headers.put("Accept-Encoding", "gzip, deflate, br");
+        headers.put("Connection", "keep-alive");
+        return headers;
+    }
+
     public static Response sendApiRequest(String baseUrl, Object body, ApiMethodTypes apiMethodTypes, String endPoint, String token) {
         Response response;
         switch (apiMethodTypes) {
             case POST:
                 response = given()
                         .baseUri(baseUrl)
-                        .contentType(ContentType.JSON)
+                        .headers(getHeaders())
                         .body(body)
                         .auth().oauth2(token)
                         .when().post(endPoint)
@@ -41,7 +52,7 @@ public class TestBase {
             case GET:
                 response = given()
                         .baseUri(baseUrl)
-                        .contentType(ContentType.JSON)
+                        .headers(getHeaders())
                         .body(body)
                         .auth().oauth2(token)
                         .when().get(endPoint)
@@ -51,7 +62,7 @@ public class TestBase {
             case PUT:
                 response = given()
                         .baseUri(baseUrl)
-                        .contentType(ContentType.JSON)
+                        .headers(getHeaders())
                         .body(body)
                         .auth().oauth2(token)
                         .when().put(endPoint)
@@ -61,7 +72,7 @@ public class TestBase {
             case DELETE:
                 response = given()
                         .baseUri(baseUrl)
-                        .contentType(ContentType.JSON)
+                        .headers(getHeaders())
                         .body(body)
                         .auth().oauth2(token)
                         .when().delete(endPoint)
@@ -71,7 +82,7 @@ public class TestBase {
             case PATCH:
                 response = given()
                         .baseUri(baseUrl)
-                        .contentType(ContentType.JSON)
+                        .headers(getHeaders())
                         .body(body)
                         .auth().oauth2(token)
                         .when().patch(endPoint)
